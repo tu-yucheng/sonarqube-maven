@@ -7,6 +7,13 @@
     <groupId>cn.tuyucheng.taketoday</groupId>
     <artifactId>sonarqube-maven</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>module-a</module>
+        <module>module-b</module>
+        <module>module-c</module>
+        <module>report-module</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -98,6 +105,8 @@
         <sonar.projectKey>tu-yucheng_sonarqube-maven</sonar.projectKey>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
         <sonar.projectName>sonarqube-maven</sonar.projectName>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            ${project.basedir}/report-module/target/site/jacoco-aggregate/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 </project>
